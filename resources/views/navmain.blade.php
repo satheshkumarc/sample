@@ -44,7 +44,15 @@
             <a href="{{ url('bookings/lists') }}"><span class="fa fa-trophy mr-3"></span> Dinning Booking Lists</a>
           </li>
           <li>
-            <a href="#"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+              <span class="fa fa-sign-out mr-3"></span>   {{ __('Logout') }}
+            </a>            
           </li>
         </ul>
 
